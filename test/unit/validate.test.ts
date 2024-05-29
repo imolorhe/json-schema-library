@@ -6,7 +6,11 @@ import { Draft04 as Core } from "../../lib/draft04";
 import { expect } from "chai";
 import { JsonSchema } from "../../lib/types";
 
-function validate(draft: Draft, value: unknown, schema: JsonSchema = draft.rootSchema as JsonSchema) {
+function validate(
+    draft: Draft,
+    value: unknown,
+    schema: JsonSchema = draft.rootSchema as JsonSchema
+) {
     return _validate(createNode(draft, schema), value);
 }
 
@@ -99,6 +103,45 @@ describe("validate", () => {
                     anyOf: [{ type: "null" }, { $ref: "#/definitions/integer" }]
                 });
                 expect(errors).to.have.length(0);
+            });
+
+            it.only("should return error when validating number with complex oneOf schema, with string value", () => {
+                draft.setSchema({
+                    $schema: "http://json-schema.org/draft-04/schema#",
+                    properties: {
+                        foo: {
+                            additionalProperties: false,
+                            properties: {
+                                number: {
+                                    type: "integer"
+                                }
+                            },
+                            oneOf: [
+                                {
+                                    type: "null"
+                                },
+                                {
+                                    type: "object"
+                                }
+                            ]
+                        }
+                    },
+                    additionalProperties: false,
+                    oneOf: [
+                        {
+                            type: "null"
+                        },
+                        {
+                            type: "object"
+                        }
+                    ]
+                });
+                const errors = validate(draft, {
+                    foo: {
+                        number: "d"
+                    }
+                });
+                expect(errors).to.have.length(1);
             });
         });
     });
