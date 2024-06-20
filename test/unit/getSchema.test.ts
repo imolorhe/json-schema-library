@@ -334,6 +334,32 @@ describe("getSchema", () => {
                 const schema = getSchema(draft, { pointer: "/dynamicValue", data: { test: "" } });
                 expect(schema).to.deep.include({ type: "string", description: "else" });
             });
+
+            it.only("should resolve nested then-schema for matching if-schema", () => {
+                draft.setSchema({
+                    type: "object",
+                    properties: {
+                        test: { type: "string" }
+                    },
+                    if: {
+                        properties: {
+                            test: { type: "string", minLength: 1 }
+                        }
+                    },
+                    then: {
+                        properties: {
+                            additionalValue: { description: "added", type: "string" }
+                        }
+                    }
+                });
+
+                const schema = getSchema(draft, {
+                    pointer: "/",
+                    data: { test: "validates if" },
+                    withSchemaWarning: true
+                });
+                expect(schema).to.deep.include({ type: "string", description: "added" });
+            });
         });
     });
 

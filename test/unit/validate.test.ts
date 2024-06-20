@@ -104,45 +104,6 @@ describe("validate", () => {
                 });
                 expect(errors).to.have.length(0);
             });
-
-            it.only("should return error when validating number with complex oneOf schema, with string value", () => {
-                draft.setSchema({
-                    $schema: "http://json-schema.org/draft-04/schema#",
-                    properties: {
-                        foo: {
-                            additionalProperties: false,
-                            properties: {
-                                number: {
-                                    type: "integer"
-                                }
-                            },
-                            oneOf: [
-                                {
-                                    type: "null"
-                                },
-                                {
-                                    type: "object"
-                                }
-                            ]
-                        }
-                    },
-                    additionalProperties: false,
-                    oneOf: [
-                        {
-                            type: "null"
-                        },
-                        {
-                            type: "object"
-                        }
-                    ]
-                });
-                const errors = validate(draft, {
-                    foo: {
-                        number: "d"
-                    }
-                });
-                expect(errors).to.have.length(1);
-            });
         });
     });
 

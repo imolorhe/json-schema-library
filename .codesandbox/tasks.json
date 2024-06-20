@@ -1,0 +1,118 @@
+{
+  // These tasks will run in order when initializing your CodeSandbox project.
+  "setupTasks": [
+    {
+      "name": "Install Dependencies",
+      "command": "yarn install"
+    }
+  ],
+
+  // These tasks can be run from CodeSandbox. Running one will open a log in the app.
+  "tasks": {
+    "dist": {
+      "name": "dist",
+      "command": "yarn dist",
+      "runAtStart": false
+    },
+    "dist:es5": {
+      "name": "dist:es5",
+      "command": "yarn dist:es5",
+      "runAtStart": false
+    },
+    "dist:es6": {
+      "name": "dist:es6",
+      "command": "yarn dist:es6",
+      "runAtStart": false
+    },
+    "test": {
+      "name": "test",
+      "command": "yarn test",
+      "runAtStart": false
+    },
+    "test:integration": {
+      "name": "test:integration",
+      "command": "yarn test:integration",
+      "runAtStart": false
+    },
+    "test:unit": {
+      "name": "test:unit",
+      "command": "yarn test:unit",
+      "runAtStart": false
+    },
+    "test:unit:ci": {
+      "name": "test:unit:ci",
+      "command": "yarn test:unit:ci",
+      "runAtStart": false
+    },
+    "test:spec": {
+      "name": "test:spec",
+      "command": "yarn test:spec",
+      "runAtStart": false
+    },
+    "test:spec:4:ci": {
+      "name": "test:spec:4:ci",
+      "command": "yarn test:spec:4:ci",
+      "runAtStart": false
+    },
+    "test:spec:6:ci": {
+      "name": "test:spec:6:ci",
+      "command": "yarn test:spec:6:ci",
+      "runAtStart": false
+    },
+    "test:spec:7:ci": {
+      "name": "test:spec:7:ci",
+      "command": "yarn test:spec:7:ci",
+      "runAtStart": false
+    },
+    "test:spec:2019:ci": {
+      "name": "test:spec:2019:ci",
+      "command": "yarn test:spec:2019:ci",
+      "runAtStart": false
+    },
+    "test:4": {
+      "name": "test:4",
+      "command": "yarn test:4",
+      "runAtStart": false
+    },
+    "test:6": {
+      "name": "test:6",
+      "command": "yarn test:6",
+      "runAtStart": false
+    },
+    "test:7": {
+      "name": "test:7",
+      "command": "yarn test:7",
+      "runAtStart": false
+    },
+    "test:2019": {
+      "name": "test:2019",
+      "command": "yarn test:2019",
+      "runAtStart": false
+    },
+    "tdd": {
+      "name": "tdd",
+      "command": "yarn tdd",
+      "runAtStart": false
+    },
+    "coverage": {
+      "name": "coverage",
+      "command": "yarn coverage",
+      "runAtStart": false
+    },
+    "analyze": {
+      "name": "analyze",
+      "command": "yarn analyze",
+      "runAtStart": false
+    },
+    "lint": {
+      "name": "lint",
+      "command": "yarn lint",
+      "runAtStart": false
+    },
+    "prepublishOnly": {
+      "name": "prepublishOnly",
+      "command": "yarn prepublishOnly",
+      "runAtStart": false
+    }
+  }
+}
