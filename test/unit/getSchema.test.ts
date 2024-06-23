@@ -354,11 +354,11 @@ describe("getSchema", () => {
                 });
 
                 const schema = getSchema(draft, {
-                    pointer: "/",
+                    pointer: "",
                     data: { test: "validates if" },
                     withSchemaWarning: true
                 });
-                expect(schema).to.deep.include({ type: "string", description: "added" });
+                expect(schema).to.deep.equal({ type: "string", description: "added" });
             });
         });
     });
